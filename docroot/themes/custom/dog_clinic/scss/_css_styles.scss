@@ -1,0 +1,304 @@
+body {
+  min-width: 320px;
+  font-size: 14px;
+  color: #626262;
+  background: #f2eee5 !important;
+}
+
+.text-Bubblegum {
+  font-family: 'Bubblegum Sans', sans-serif;
+}
+.container {
+  background: #f2eee5;
+  font-family: 'Cabin', sans-serif;
+}
+
+.dog-img {
+  width: 15px;
+  height: 15px;
+}
+
+h2,
+h3 {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.dogs-img {
+  margin-bottom: 30px;
+}
+
+/************* navbar ************/
+.post-category {
+  margin-top: 120px;
+}
+
+.navbar {
+  background: #f2eee5;
+}
+
+header .nav-item:hover {
+  border-radius: 100px;
+  transition: all 0.5s ease;
+}
+
+header .dropdown a:hover {
+  background: orange;
+  border-radius: 100px;
+  transition: all 0.5s ease;
+}
+
+.actives {
+  color: #60991f !important;
+}
+
+.navbar-image:after {
+  content: '';
+  background-image: url('../img/menu_strip.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 43px;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  background-size: cover;
+  z-index: 0;
+}
+
+.collapse {
+  padding: 29px;
+}
+/* header .nav-item a::after {
+  content: '';
+  display: block;
+  width: 100%;
+  background-color: #ccc;
+  height: 1px;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+header .nav-item a:hover::after {
+  transform: scale(1);
+} */
+
+/************* Главная содержимое ************/
+.single-post h1 {
+  font-size: 45px;
+  color: #40bdc8;
+  line-height: 45px;
+  text-align: center;
+  font-family: Chewy;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.single-post .services {
+  margin-top: 20px;
+}
+
+.single-post b {
+  font-size: 34px;
+  color: #818181;
+  line-height: 20px;
+  text-align: center;
+  font-family: Caveat;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.spacer {
+  height: 70px;
+}
+
+.cord-page-van {
+  text-align: center;
+  min-height: 400px;
+  min-height: 380px;
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+.card-text-page-van {
+  font-family: Cabin, sans-serif;
+}
+
+.container .circle-bg {
+  border-radius: 20px;
+}
+
+.circle-bg img {
+  border-radius: 20px 20px 0 0;
+}
+
+.card-width {
+  min-width: 283px;
+  margin-bottom: 40px;
+}
+
+.card-width .card-body:hover {
+  box-shadow: 0 2px 7px 0 rgba(10, 10, 10, 0.05), 3px 27px 54px -34px rgba(0, 0, 0, 0.47);
+  border-radius: 15px;
+}
+
+.parallax-window {
+  margin-top: 70px;
+  min-height: 400px;
+  background: transparent;
+}
+
+.parallax-window-registration {
+  min-height: 500px;
+  background: transparent;
+}
+
+.slider {
+  margin-top: 110px;
+}
+
+.icon-wrapper span {
+  width: 60px;
+  height: 60px;
+  z-index: -3;
+  font-size: 30px;
+  line-height: 60px;
+  margin: 0;
+  display: inline-block;
+  color: white;
+}
+
+.icon-wrapper {
+  bottom: -30px;
+  margin-left: 50%;
+  left: -25px;
+  position: absolute;
+  display: block;
+  line-height: 20px;
+  text-align: center;
+  background: #213646;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: #40bdc8;
+}
+
+/************* Часті запитання 5 ************/
+.accordion .card {
+  border-radius: 30px !important;
+}
+
+.accordion .card:hover {
+  border-radius: 30px !important;
+  background: orange;
+}
+
+.accordion .btn-link {
+  color: black;
+}
+
+.accordion .btn-link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.card .btn-link {
+  text-align: left;
+}
+
+.card .card-header {
+  padding: 0;
+}
+
+.accordion .card {
+  margin-bottom: 10px;
+  border: 2px solid #e0d7c5;
+}
+
+.card-border .card {
+  border: 0px;
+  border-radius: 10px;
+}
+
+.form-action {
+  width: 300px;
+  height: 30px;
+  background: red;
+}
+
+/******************* form *****************/
+.form-white,
+.bg-white {
+  background: white;
+}
+
+form .form-control,
+.btn-margin {
+  width: 90%;
+  height: 60px;
+  margin: 30px 30px;
+}
+
+form .form-select {
+  height: 60px;
+  width: 100%;
+}
+
+form .form-control,
+.btn-group .btn-secondary,
+.form-select {
+  border: 2px solid #e0d7c5;
+  border-radius: 10px;
+}
+/******************* form dropdown *****************/
+
+/******************* form option *****************/
+
+.btn-option {
+  height: 60px;
+  width: 90%;
+}
+
+.btn-option .bg-white {
+  color: black;
+}
+
+form .btn-warning {
+  border-radius: 10px !important;
+  text-align: center;
+  line-height: 45px;
+}
+
+.btn-success:active {
+  background-color: #4b1c0e !important;
+}
+
+.btn-success {
+  height: 60px;
+  border: 2px solid #e0d7c5 !important;
+  border-radius: 10px !important;
+}
+
+/*  */
+.color-bl {
+  color: #40bdc8;
+}
+
+.color-green {
+  color: #8d9b54;
+  margin-top: 30px;
+}
+
+.margin-space p {
+  margin-top: 15px;
+}
+
+/******************* card-reviews*****************/
+.card-reviews-book .card {
+  border: none;
+}
+
+.card-reviews .card-body {
+  border: 2px solid #e0d7c5;
+  border-radius: 10px;
+  margin: 10px;
+}

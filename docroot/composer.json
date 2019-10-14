@@ -6,11 +6,14 @@
     "require": {
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/bootstrap": "^3.20",
         "drupal/admin_toolbar": "^1.27",
         "drupal/webform": "^5.4",
         "drupal/page_manager": "^4.0@beta",
-        "drupal/faq": "^1.0@alpha"
+        "drupal/faq": "^1.0@alpha",
+        "drupal/address": "^1.7",
+        "drupal/panels": "^4.4",
+        "drupal/bootstrap_barrio": "^4.22",
+        "drupal/ds": "^3.4"
     },
     "replace": {
         "drupal/core": "^8.7"
@@ -38,13 +41,27 @@
             "merge-extra": false
         },
         "installer-paths": {
-            "core": ["type:drupal-core"],
-            "modules/contrib/{$name}": ["type:drupal-module"],
-            "profiles/contrib/{$name}": ["type:drupal-profile"],
-            "themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/contrib/{$name}": ["type:drupal-drush"],
-            "modules/custom/{$name}": ["type:drupal-custom-module"],
-            "themes/custom/{$name}": ["type:drupal-custom-theme"]
+            "core": [
+                "type:drupal-core"
+            ],
+            "modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
         }
     },
     "autoload": {

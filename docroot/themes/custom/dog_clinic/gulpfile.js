@@ -1,37 +1,72 @@
-'use strict';
+let gulp = require('gulp'),
+  sass = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
+  cleanCss = require('gulp-clean-css'),
+  rename = require('gulp-rename'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer'),
+  browserSync = require('browser-sync').create()
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var sassGlob = require('gulp-sass-glob');
-var autoprefixer = require('autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var livereload = require('gulp-livereload');
-var eslint = require('gulp-eslint');
+const paths = {
+  scss: {
+    src: './scss/style.scss',
+    dest: './css',
+    watch: './scss/**/*.scss',
+    bootstrap: './node_modules/bootstrap/scss/bootstrap.scss'
+  },
+  js: {
+    bootstrap: './node_modules/bootstrap/dist/js/bootstrap.min.js',
+    jquery: './node_modules/jquery/dist/jquery.min.js',
+    popper: 'node_modules/popper.js/dist/umd/popper.min.js',
+    dest: './js'
+  }
+}
 
-// Define list of vendors.
-var _vendors = [];
-
-
-gulp.task('sass:build', function () {
-  gulp.src('./scss/*.scss')
+// Compile sass into CSS & auto-inject into browsers
+function styles () {
+  return gulp.src([paths.scss.bootstrap, paths.scss.src])
     .pipe(sourcemaps.init())
-    .pipe(sassGlob())
-    .pipe(sass({
-      outputStyle: 'expanded',
-      includePaths: _vendors
-    }).on('error', sass.logError))
-    .pipe(postcss([
-      autoprefixer({
-        browsers: ['last 2 versions', '>5%']
-      })
-    ]))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./css'));
-});
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer({
+      browsers: [
+        'Chrome >= 35',
+        'Firefox >= 38',
+        'Edge >= 12',
+        'Explorer >= 10',
+        'iOS >= 8',
+        'Safari >= 8',
+        'Android 2.3',
+        'Android >= 4',
+        'Opera >= 12']
+    })]))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.scss.dest))
+    .pipe(cleanCss())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(paths.scss.dest))
+    .pipe(browserSync.stream())
+}
 
-gulp.task('watch', function () {
-  gulp.watch('./scss/**/*.scss', ['sass:build']);
-});
+// Move the javascript files into our js folder
+function js () {
+  return gulp.src([paths.js.bootstrap, paths.js.jquery, paths.js.popper])
+    .pipe(gulp.dest(paths.js.dest))
+    .pipe(browserSync.stream())
+}
 
-gulp.task('default', ['sass:build', 'watch']);
+// Static Server + watching scss/html files
+function serve () {
+  browserSync.init({
+    proxy: 'http://yourdomain.com',
+  })
+
+  gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles).on('change', browserSync.reload)
+}
+
+const build = gulp.series(styles, gulp.parallel(js))
+
+exports.styles = styles
+exports.js = js
+exports.serve = serve
+
+exports.default = build
